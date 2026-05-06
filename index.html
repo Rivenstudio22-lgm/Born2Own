@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Born2Own | Respect, Discipline, Loyalty</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        /* ESTILO GERAL */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* BANNER PRINCIPAL */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero img {
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .hero h1 { font-size: 1.5rem; letter-spacing: 4px; color: #555; }
+
+        /* DISCURSO / MANIFESTO */
+        .manifesto {
+            padding: 80px 20px;
+            text-align: center;
+            background: #0a0a0a;
+        }
+        .manifesto h2 { font-size: 2rem; margin-bottom: 20px; color: #fff; }
+        .manifesto p {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        .pillars { margin-top: 20px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+
+        /* VITRINE DE PRODUTOS */
+        .produtos {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card { background: #111; border: 1px solid #222; padding: 20px; text-align: center; }
+        .card img { width: 100%; border-radius: 4px; margin-bottom: 15px; }
+        .card h3 { margin-bottom: 10px; text-transform: uppercase; }
+
+        /* BOTÃO WHATSAPP */
+        .wpp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #444; }
+    </style>
+</head>
+<body>
+
+    <!-- SEÇÃO 1: BANNER COM LOGO -->
+    <section class="hero">
+        <img src="logo.png" alt="Born2Own Logo">
+        <h1>BORN2OWN</h1>
+        <p>A rua tem dono.</p>
+    </section>
+
+    <!-- SEÇÃO 2: DISCURSO DA MARCA -->
+    <section class="manifesto">
+        <h2>O MANIFESTO</h2>
+        <p>
+            Não viemos para pedir licença. Viemos para assumir o controle. 
+            A Born2own é o uniforme de quem dita as regras, não de quem as segue. 
+            Onde a rua encontra o luxo e a ambição encontra a realidade. 
+            Reivindique o que é seu.
+        </p>
+        <div class="pillars">RESPECT • DISCIPLINE • LOYALTY</div>
+    </section>
+
+    <!-- SEÇÃO 3: PRODUTOS -->
+    <section class="produtos">
+        <div class="card">
+            <img src="bone.jpg" alt="Boné Born2own">
+            <h3>Trucker Tag Black/White</h3>
+        </div>
+        <div class="card">
+            <img src="camiseta.jpg" alt="Camiseta Born2own">
+            <h3>T-Shirt Respect Goth</h3>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 BORN2OWN - ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP (Substitua SEUNUMERO pelo seu número com DDD) -->
+    <a href="https://wa.me" class="wpp-float" target="_blank">
+        CONVOCAR NO WHATSAPP
+    </a>
+
+</body>
+</html>
