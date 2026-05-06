@@ -6,104 +6,50 @@
     <title>Born2Own | Respect, Discipline, Loyalty</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #ffffff;
-            --bg-color: #000000;
-            --accent-color: #25d366;
-            --card-bg: #111111;
-        }
+        :root { --primary-color: #ffffff; --bg-color: #000000; --accent-color: #25d366; --card-bg: #111111; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-color); color: var(--primary-color); font-family: 'Inter', sans-serif; }
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { padding: 20px; display: flex; justify-content: center; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
         header img { height: 50px; }
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(to bottom, #000, #111);
-        }
-        .hero h1 { font-size: 3rem; font-weight: 900; margin: 20px 0; letter-spacing: -1px; }
-        .hero p { color: #888; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
+        .hero { padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 3rem; font-weight: 900; margin: 20px 0; }
+        .hero p { color: #888; margin-bottom: 30px; }
         .cta-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn-buy {
-            background: #fff; color: #000; padding: 15px 30px;
-            border-radius: 10px; font-weight: 900; text-decoration: none;
-            display: flex; align-items: center; gap: 10px; transition: 0.3s;
-        }
-        .btn-buy:hover { transform: scale(1.05); background: #ccc; }
-        .about { padding: 80px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
-        .about h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .about p { line-height: 1.8; color: #bbb; font-size: 1.1rem; }
-        .grid-produtos {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; padding: 40px 20px; max-width: 1100px; margin: 0 auto;
-        }
-        .item { background: var(--card-bg); border-radius: 15px; padding: 20px; border: 1px solid #222; text-align: left; }
+        .btn-buy { background: #fff; color: #000; padding: 15px 30px; border-radius: 10px; font-weight: 900; text-decoration: none; }
+        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
+        .item { background: var(--card-bg); border-radius: 15px; padding: 20px; border: 1px solid #222; }
         .item img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .item h3 { font-size: 1.4rem; margin-bottom: 5px; }
-        .item span { color: #666; font-size: 0.9rem; text-transform: uppercase; }
-        footer { padding: 60px 20px; border-top: 1px solid #222; text-align: center; color: #444; }
-        .wpp-btn {
-            position: fixed; bottom: 30px; right: 30px; background: var(--accent-color);
-            width: 60px; height: 60px; border-radius: 50%; display: flex;
-            justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            text-decoration: none; z-index: 1000; transition: 0.3s;
-        }
-        .wpp-btn:hover { transform: translateY(-5px); }
+        .wpp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-color); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="logo.jpg" alt="Born2Own">
+        <img src="logo.jpeg" alt="Born2Own">
     </header>
 
     <section class="hero">
-        <img src="logo.jpg" style="width: 200px; margin-bottom: 0;" alt="Logo Born2Own">
+        <img src="logo.jpeg" style="width: 200px;" alt="Logo Born2Own">
         <h1>NASCIDO PARA POSSUIR.</h1>
-        <p>A rua não perdoa. O estilo define quem comanda. Respect, Discipline, Loyalty.</p>
-        
         <div class="cta-container">
             <a href="#produtos" class="btn-buy">VER COLEÇÃO</a>
             <a href="https://wa.me" class="btn-buy" style="background: transparent; color: #fff; border: 2px solid #fff;">WHATSAPP</a>
         </div>
     </section>
 
-    <section class="about">
-        <h2>MANIFESTO</h2>
-        <p>Não viemos para pedir licença. Viemos para assumir o controle. A Born2own é o uniforme de quem dita as regras, não de quem as segue. Onde a rua encontra o luxo e a ambição encontra a realidade.</p>
-        <p style="margin-top: 20px; font-weight: 900; color: #fff;">RESPECT • DISCIPLINE • LOYALTY</p>
-    </section>
-
     <section id="produtos" class="grid-produtos">
         <div class="item">
-            <img src="bone.jpg" alt="Boné Born2own">
-            <span>Acessórios</span>
+            <img src="bone.jpeg" alt="Boné">
             <h3>Trucker Tag Black/White</h3>
         </div>
         <div class="item">
-            <img src="camiseta.jpg" alt="Camiseta Born2own">
-            <span>Roupas</span>
+            <img src="camiseta.jpeg" alt="Camiseta">
             <h3>T-Shirt Respect Goth</h3>
         </div>
     </section>
 
-    <footer>
-        <p>© 2024 Born2Own - Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me" class="wpp-btn" target="_blank">
-        <img src="https://wikimedia.org" width="30" alt="WhatsApp">
+        <img src="https://wikimedia.org" width="30">
     </a>
 
 </body>
