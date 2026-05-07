@@ -5,133 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Born2Own | Respect, Discipline, Loyalty</title>
     <style>
-        :root { 
-            --primary-color: #ffffff; 
-            --bg-color: #000000; 
-            --accent-color: #25d366; 
-            --card-bg: #111111; 
-        }
+        :root { --primary-color: #ffffff; --bg-color: #000000; --accent-color: #25d366; --card-bg: #111111; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--primary-color); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-        }
+        body { background-color: var(--bg-color); color: var(--primary-color); font-family: 'Segoe UI', sans-serif; text-align: center; }
         
-        /* HEADER - A BARRA DO TOPO */
         header { 
             padding: 15px 5%; 
-            background: #000000; 
+            background: #000; 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
-            border-bottom: 1px solid #222;
-            display: flex;
-            justify-content: space-between; /* Isso joga o logo pra esquerda e o botão pra direita */
-            align-items: center;
-        }
-        header img { height: 40px; }
-        
-        /* BOTÃO SOBRE NÓS (O QUE TU MARCASTE EM VERMELHO) */
-        .btn-about {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid white;
-            padding: 8px 20px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .btn-about:hover { background: white; color: black; }
-
-        /* BANNER (A ÁREA CASTANHA) */
-        .banner-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .banner-img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-            border: 1px solid #333;
-        }
-
-        .hero { padding: 40px 20px; }
-        .hero h1 { font-size: 2.2rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 30px; }
-        
-        .btn-buy { 
-            background: #fff; 
-            color: #000; 
-            padding: 18px 40px; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            text-decoration: none; 
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .btn-buy:hover { background: #ccc; }
-
-        /* GALERIA DE PRODUTOS */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 25px; 
-            padding: 20px; 
-            max-width: 1200px; 
-            margin: 0 auto 100px; 
-        }
-        .item { 
-            background: var(--card-bg); 
-            padding: 15px; 
-            border-radius: 10px; 
-            transition: 0.3s;
-            border: 1px solid #222;
-        }
-        .item:hover { transform: translateY(-5px); border-color: #444; }
-        .item img { width: 100%; height: 320px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
-        .item h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        
-        .wpp-float { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            background: var(--accent-color); 
-            width: 60px; 
-            height: 60px; 
-            border-radius: 50%; 
             display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
-            z-index: 1000; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid #222;
         }
-        .wpp-float img { width: 35px; }
+        .brand-text { font-weight: 900; letter-spacing: 1px; font-size: 0.9rem; }
+        header img { height: 35px; }
+        .btn-menu { color: #fff; text-decoration: none; border: 1px solid #fff; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; }
+
+        .banner-container { width: 100%; max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+        .banner-img { width: 100%; border-radius: 10px; border: 1px solid #333; }
+
+        .cta-section { padding: 30px 20px; }
+        .btn-buy { background: #fff; color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 900; text-decoration: none; text-transform: uppercase; display: inline-block; }
+
+        /* TABELA DE PREÇOS */
+        .prices-section { padding: 40px 20px; background: #0a0a0a; margin: 20px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .prices-section h2 { margin-bottom: 20px; font-size: 1.5rem; }
+        .price-item { font-size: 1.2rem; margin: 10px 0; color: #ccc; }
+        .price-item span { color: #fff; font-weight: bold; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto 80px; }
+        .item { background: var(--card-bg); padding: 15px; border-radius: 10px; border: 1px solid #222; }
+        .item img { width: 100%; height: 300px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; }
+        
+        .wpp-float { position: fixed; bottom: 30px; right: 30px; background: var(--accent-color); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .wpp-float img { width: 30px; }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Logo na Esquerda -->
-        <img src="logoazul.jpeg" alt="Born2Own Logo">
-        
-        <!-- Botão SOBRE NÓS na Direita (Círculo Vermelho) -->
-        <a href="https://wa.me" class="btn-about">SOBRE NÓS</a>
+        <span class="brand-text">NASCIDO PARA POSSUIR</span>
+        <img src="logoazul.jpeg" alt="Logo">
+        <a href="#precos" class="btn-menu">SOBRE NÓS</a>
     </header>
 
-    <!-- BANNER (ÁREA CASTANHA) -->
     <div class="banner-container">
-        <img src="thebest.jpeg" class="banner-img" alt="Banner Principal">
+        <img src="thebest.jpeg" class="banner-img">
     </div>
 
-    <section class="hero">
-        <h1>NASCIDO PARA POSSUIR.</h1>
-        <a href="https://wa.me" class="btn-buy" target="_blank">Comprar via WhatsApp</a>
+    <section class="cta-section">
+        <a href="https://wa.me" class="btn-buy">COMPRAR VIA WHATSAPP</a>
+    </section>
+
+    <section id="precos" class="prices-section">
+        <h2>TABELA DE PREÇOS</h2>
+        <p class="price-item">Chapéus (Hats): <span>850 MT</span></p>
+        <p class="price-item">Camisetas (T-Shirts): <span>2.500 MT</span></p>
     </section>
 
     <section class="grid">
@@ -144,7 +76,7 @@
     </section>
 
     <a href="https://wa.me" class="wpp-float" target="_blank">
-        <img src="https://wikimedia.org" alt="WhatsApp">
+        <img src="https://wikimedia.org">
     </a>
 
 </body>
