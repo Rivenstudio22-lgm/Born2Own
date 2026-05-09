@@ -1,211 +1,264 @@
+# Novo código completo — Born2Own
+
+Substitui todo o conteúdo do teu `index.html` por este código:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Born2Own</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #000000;
-            --accent: #ffffff;
-            --gray: #666666;
-            --text-muted: #888888;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Born2Own</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg);
-            color: var(--accent);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
+<style>
 
-        header {
-            padding: 20px 5%;
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--gray);
-        }
+:root{
+    --bg:#000;
+    --white:#fff;
+    --gray:#666;
+}
 
-        .motto.jpeg { font-weight: 900; font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted); }
-        header img { height: 45px; filter: brightness(1.2); }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .nav-link {
-            text-decoration: none;
-            color: var(--accent);
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            font-weight: 300;
-            border: 1px solid var(--accent);
-            padding: 10px 25px;
-            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+body{
+    background:black;
+    color:white;
+    font-family:'Montserrat',sans-serif;
+}
 
-        .nav-link:hover { background-color: var(--accent); color: var(--bg); }
+header{
+    width:100%;
+    padding:20px 5%;
+    border-bottom:1px solid #222;
 
-        .hero { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        .hero-banner {
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            border: 1px solid var(--gray);
-            position: relative;
-        }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        .hero-banner img {desenho.jpeg
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: 2s scale;
-        }
+    position:sticky;
+    top:0;
 
-        .hero-banner:hover img { scale: 1.05; }
+    background:rgba(0,0,0,0.95);
+    backdrop-filter:blur(10px);
 
-        .hero-text { padding: 40px 0; }
-        .hero-text h1 { font-family: 'Inter', serif; font-size: clamp(2rem, 5vw, 6rem); letter-spacing: 10px; margin-bottom: 40px; }
+    z-index:1000;
+}
 
-        .btn-shop {
-            background: var(--accent);
-            color: var(--bg);
-            padding: 22px 60px;
-            font-weight: 900;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            transition: 0.5s;
-            display: inline-block;
-        }
+.logo{
+    font-size:1.3rem;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
 
-        .btn-shop:hover { letter-spacing: 8px; background: #25D366; color: #fff; }
+.nav-btn{
+    border:1px solid white;
+    padding:12px 25px;
+    color:white;
+    text-decoration:none;
 
-        .section-label { font-size: 0.8rem; letter-spacing: 5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 50px; display: block; }
-        .price-section { padding: 100px 5%; border-top: 1px solid var(--gray); }
-        .price-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        
-        .price-card {
-            padding: 40px;
-            border: 1px solid var(--gray);
-            transition: 0.5s;
-        }
+    font-size:0.8rem;
+    letter-spacing:3px;
 
-        .price-card:hover { border-color: var(--accent); background: #0a0a0a; }
-        .price-card h4 { font-size: 0.8rem; letter-spacing: 4px; color: var(--text-muted); margin-bottom: 10px; }
-        .price-card p { font-size: 2rem; font-weight: 300; font-family: 'Montserrat'; }
+    transition:0.3s;
+}
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-            padding: 40px 5%;
-        }
+.nav-btn:hover{
+    background:white;
+    color:black;
+}
 
-        .gallery-item {
-            background: var(--bg);
-            height: 600px;
-            overflow: hidden;
-            position: relative;
-        }
+.hero{
+    width:100%;
+    text-align:center;
+    padding:70px 5%;
+}
 
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* MUDANÇA: Agora a foto aparece 100% sem cortes */
-            filter: grayscale(20%);
-            transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    font-weight:900;
+    letter-spacing:5px;
+}
 
-        .gallery-item:hover .gallery-img { transform: scale(1.1); filter: grayscale(0%); }
+.hero p{
+    color:#999;
+    letter-spacing:4px;
+    font-size:0.9rem;
+}
 
-        .item-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
-            opacity: 0;
-            transition: 0.5s;
-        }
+.prices{
+    width:100%;
 
-        .gallery-item:hover .item-overlay { opacity: 1; }
-        .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; }
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 
-        footer { padding: 80px 5%; border-top: 1px solid var(--gray); font-size: 0.8rem; letter-spacing: 4px; color: var(--text-muted); text-align: center; }
+    padding:40px 5%;
+}
 
-    </style>
+.price-box{
+    border:1px solid #222;
+    height:120px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:2rem;
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.price-box:hover{
+    border:1px solid white;
+}
+
+.section-title{
+    padding:80px 5% 30px;
+
+    font-size:0.8rem;
+    letter-spacing:6px;
+    color:#777;
+}
+
+.gallery{
+    width:100%;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:40px;
+
+    padding:0 5% 100px;
+}
+
+.card{
+    border:1px solid #111;
+    background:#050505;
+
+    overflow:hidden;
+
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border:1px solid #444;
+}
+
+.card img{
+    width:100%;
+    height:450px;
+
+    object-fit:contain;
+
+    background:black;
+
+    padding:20px;
+}
+
+.card-title{
+    padding:20px;
+
+    font-size:0.9rem;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+footer{
+    border-top:1px solid #111;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#666;
+
+    letter-spacing:2px;
+    font-size:0.7rem;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2rem;
+}
+
+.card img{
+    height:300px;
+}
+
+}
+
+</style>
 </head>
 <body>
 
-    <header>
-        <span class="motto">Nascido para Possuir</span>
-        <img src="logoazul.jpeg" alt="Logo">
-        <a href="#investment" class="nav-link">PREÇOS</a>
-    </header>
+<header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-banner">
-                <img src="thebest.jpeg" alt="Collection">
-            </div>
-            <div class="hero-text">
-                <h1>BORN2OWN</h1>
-                <!-- MUDANÇA: Link do WhatsApp atualizado com o teu número -->
-                <a href="https://whatsapp.com" class="btn-shop">Shop WhatsApp</a>
-            </div>
-        </section>
+<div class="logo">Born2Own</div>
 
-        <section id="investment" class="price-section">
-            <span class="section-label">Investment Table</span>
-            <div class="price-grid">
-                <div class="price-card">
-                    <h4>EXCLUSIVE HATS</h4>
-                    <p>850 MT</p>
-                </div>
-                <div class="price-card">
-                    <h4>PREMIUM T-SHIRTS</h4>
-                    <p>2.500 MT</p>
-                </div>
-            </div>
-        </section>
+<a href="#" class="nav-btn">PREÇOS</a>
 
-        <span class="section-label" style="margin-left: 5%;">Selected Pieces</span>
-        <section class="gallery-grid">
-            <div class="gallery-item">
-                <img src="chapeus.jpeg" class="gallery-img">
-                <div class="item-overlay"><h3>Special Hats</h3></div>
-            </div>
-            <div class="gallery-item">
-                <img src="mangue.jpeg" class="gallery-img">
-                <div class="item-overlay"><h3>Sticker-Born2Own</h3></div>
-            </div>
-            <div class="gallery-item">
-                <img src="amalaentao.jpeg" class="gallery-img">
-                <div class="item-overlay"><h3>B2O Collection</h3></div>
-            </div>
-            <div class="gallery-item">
-                <img src="mota.jpeg" class="gallery-img">
-                <div class="item-overlay"><h3>Street Lifestyle</h3></div>
-            </div>
-            <div class="gallery-item">
-                <img src="desenho.jpeg" class="gallery-img">
-                <div class="item-overlay"><h3>Concept Art</h3></div>
-            </div>
-        </section>
-    </main>
+</header>
 
-    <footer>
-        From Maputo to the world • EST. 2026 • BORN2OWN OFFICIAL STORE
-    </footer>
+<section class="hero">
+
+<h1>NASCIDO PARA POSSUIR</h1>
+
+<p>SELECTED PIECES</p>
+
+</section>
+
+<section class="prices">
+
+<div class="price-box">850 MT</div>
+<div class="price-box">2.500 MT</div>
+
+</section>
+
+<h2 class="section-title">SELECTED PIECES</h2>
+
+<section class="gallery">
+
+<div class="card">
+<img src="mandrack.jpeg" alt="shirt">
+<div class="card-title">Born2Own Tee</div>
+</div>
+
+<div class="card">
+<img src="mota.jpeg" alt="mota">
+<div class="card-title">Lifestyle</div>
+</div>
+
+<div class="card">
+<img src="bone.JPEG.FILE.jpeg" alt="bone">
+<div class="card-title">Born2Own Cap</div>
+</div>
+
+<div class="card">
+<img src="mandrack.jpeg" alt="shirt">
+<div class="card-title">Streetwear</div>
+</div>
+
+</section>
+
+<footer>
+
+BORN2OWN © 2025
+
+</footer>
 
 </body>
 </html>
+
+
