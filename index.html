@@ -1,4 +1,232 @@
+# Novo código completo — Born2Own
+
+Substitui todo o conteúdo do teu `index.html` por este código:
+
+```html
 <!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Born2Own</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#000;
+    --white:#fff;
+    --gray:#666;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
+
+header{
+    width:100%;
+    padding:20px 5%;
+    border-bottom:1px solid #222;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+
+    background:rgba(0,0,0,0.95);
+    backdrop-filter:blur(10px);
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.3rem;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.nav-btn{
+    border:1px solid white;
+    padding:12px 25px;
+    color:white;
+    text-decoration:none;
+
+    font-size:0.8rem;
+    letter-spacing:3px;
+
+    transition:0.3s;
+}
+
+.nav-btn:hover{
+    background:#000;
+    color:#fff;
+    border:1px solid #222;
+}
+
+.hero{
+    width:100%;
+    text-align:center;
+    padding:70px 5%;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    font-weight:900;
+    letter-spacing:5px;
+}
+
+.hero p{
+    color:#999;
+    letter-spacing:4px;
+    font-size:0.9rem;
+}
+
+.prices{
+    width:100%;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+
+    padding:40px 5%;
+}
+
+.price-box{
+    border:1px solid #222;
+    height:120px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:2rem;
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.price-box:hover{
+    border:1px solid white;
+}
+
+.section-title{
+    padding:80px 5% 30px;
+
+    font-size:0.8rem;
+    letter-spacing:6px;
+    color:#777;
+}
+
+.gallery{
+    background:#000;
+    width:100%;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:40px;
+
+    padding:0 5% 100px;
+}
+
+.card{
+    border:1px solid #111;
+    background:#000;
+
+    overflow:hidden;
+
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+    border:1px solid white;
+    box-shadow:0 0 25px rgba(255,255,255,0.15);
+}
+
+.card img{
+    width:100%;
+    max-width:500px;
+    height:auto;
+
+    object-fit:contain;
+
+    background:black;
+
+    padding:20px;
+}
+
+.card-title{
+    padding:20px;
+
+    font-size:0.9rem;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+footer{
+    border-top:1px solid #111;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#666;
+
+    letter-spacing:2px;
+    font-size:0.7rem;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2rem;
+}
+
+.card img{
+    height:300px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">Born2Own</div>
+
+<a href="#" class="nav-btn">PREÇOS</a>
+
+</header>
+
+<section class="hero">
+
+<h1>NASCIDO PARA POSSUIR</h1>
+
+<p>SELECTED PIECES</p>
+
+</section>
+
+<section class="prices" style="margin-top:-20px;">
+
+<div class="price-box">850 MT</div>
 <div class="price-box">2.500 MT</div>
 
 </section>
@@ -41,9 +269,10 @@ WHATSAPP
 
 <style>
 .whatsapp-btn{
+    font-size:14px;
     position:fixed;
-    bottom:40px;
-    right:40px;
+    bottom:20px;
+    right:20px;
 
     background:white;
     color:black;
@@ -68,3 +297,4 @@ WHATSAPP
 
 </body>
 </html>
+
