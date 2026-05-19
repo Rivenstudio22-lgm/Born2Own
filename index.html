@@ -1,302 +1,246 @@
-
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Born2Own</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BORN2OWN | Luxury Streetwear</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root { 
+            --bg: #000000;
+            --accent: #ffffff;
+            --gray: #1a1a1a;
+            --text-muted: #888888;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-<style>
+        body { 
+            background-color: var(--bg); 
+            color: var(--accent); 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
+        }
 
-:root{
-    --bg:#000;
-    --white:#fff;
-    --gray:#666;
-}
+        /* HEADER LUXO */
+        header { 
+            padding: 20px 5%; 
+            background: rgba(0,0,0,0.95); 
+            backdrop-filter: blur(15px);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid var(--gray);
+        }
+        .motto { font-weight: 900; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted); }
+        header img { height: 45px; filter: brightness(1.2); }
+        
+        /* BOTÃO SOBRE NÓS */
+        .nav-link { 
+            background: none;
+            cursor: pointer;
+            color: var(--accent); 
+            font-size: 0.7rem; 
+            letter-spacing: 3px; 
+            font-weight: 900;
+            border: 1px solid var(--accent);
+            padding: 10px 25px;
+            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .nav-link:hover { background: var(--accent); color: var(--bg); }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* HERO SECTION */
+        .hero { padding: 20px 5%; max-width: 1600px; margin: 0 auto; }
+        .hero-banner { 
+            width: 100%; 
+            overflow: hidden; 
+            border: 1px solid var(--gray);
+            position: relative;
+        }
+        .hero-banner img { 
+            width: 100%; 
+            display: block; 
+            transition: 2s scale;
+        }
+        .hero-banner:hover img { scale: 1.05; }
 
-body{
-    background:#000;
-    color:#fff;
-    font-family:'Montserrat',sans-serif;
-    overflow-x:hidden;
-}
+        .hero-text { padding: 60px 20px; }
+        .hero-text h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: 10px; margin-bottom: 40px; }
+        
+        .btn-shop { 
+            background: var(--accent); 
+            color: var(--bg); 
+            padding: 22px 60px; 
+            font-weight: 900; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            transition: 0.5s;
+            display: inline-block;
+        }
+        .btn-shop:hover { letter-spacing: 8px; background: #e0e0e0; }
 
-header{
-    width:100%;
-    padding:20px 5%;
-    border-bottom:1px solid #222;
+        /* SEÇÃO DE PRODUTOS */
+        .section-label { font-size: 0.7rem; letter-spacing: 8px; color: var(--text-muted); text-transform: uppercase; margin: 50px 0; display: block; }
+        
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 10px; 
+            padding: 10px; 
+            background: var(--gray);
+        }
+        .gallery-item { 
+            background: var(--bg); 
+            height: 600px; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: grayscale(20%);
+            transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        
+        .item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .gallery-item:hover .item-overlay { opacity: 1; }
+        .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; }
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+        /* JANELA FLUTUANTE (MODAL "SOBRE NÓS") */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .modal-window {
+            background: #050505;
+            border: 1px solid #222;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+        }
+        /* Quando o modal abre */
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-overlay.active .modal-window { transform: translateY(0); }
 
-    position:sticky;
-    top:0;
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            background: none; border: none;
+            color: var(--accent); font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .modal-window h2 { font-family: 'Cinzel', serif; letter-spacing: 4px; margin-bottom: 25px; font-size: 1.5rem; }
+        .modal-window p { font-size: 0.9rem; color: #b3b3b3; line-height: 1.8; margin-bottom: 25px; }
+        
+        .modal-prices { border-top: 1px solid #1a1a1a; padding-top: 20px; text-align: left; }
+        .modal-prices div { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.85rem; letter-spacing: 1px; }
+        .modal-prices span { font-weight: bold; color: var(--accent); }
 
-    background:rgba(0,0,0,0.95);
-    backdrop-filter:blur(10px);
+        footer { padding: 80px 5%; border-top: 1px solid var(--gray); font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); }
 
-    z-index:1000;
-}
-
-.logo{
-    font-size:1.3rem;
-    font-weight:900;
-    letter-spacing:3px;
-    text-transform:uppercase;
-}
-
-.nav-btn{
-    border:1px solid white;
-    padding:12px 25px;
-    color:white;
-    text-decoration:none;
-
-    font-size:0.8rem;
-    letter-spacing:3px;
-
-    transition:0.3s;
-}
-
-.nav-btn:hover{
-    background:#000;
-    color:#fff;
-    border:1px solid #222;
-}
-
-.hero{
-    width:100%;
-    text-align:center;
-    padding:70px 5%;
-}
-
-.hero h1{
-    font-size:3rem;
-    margin-bottom:20px;
-    font-weight:900;
-    letter-spacing:5px;
-}
-
-.hero p{
-    color:#999;
-    letter-spacing:4px;
-    font-size:0.9rem;
-}
-
-.prices{
-    width:100%;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-
-    padding:40px 5%;
-}
-
-.price-box{
-    border:1px solid #222;
-    height:120px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:2rem;
-    font-weight:700;
-
-    transition:0.3s;
-}
-
-.price-box:hover{
-    border:1px solid white;
-}
-
-.section-title{
-    padding:80px 5% 30px;
-
-    font-size:0.8rem;
-    letter-spacing:6px;
-    color:#777;
-}
-
-.gallery{
-    background:#000;
-    width:100%;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-    gap:40px;
-
-    padding:0 5% 100px;
-}
-
-.card{
-    border:1px solid #111;
-    background:#000;
-
-    overflow:hidden;
-
-    transition:0.4s;
-}
-
-.card:hover{
-    transform:scale(1.03);
-    border:1px solid white;
-    box-shadow:0 0 25px rgba(255,255,255,0.15);
-}
-
-.card img{
-    width:100%;
-    max-width:500px;
-    height:auto;
-
-    object-fit:contain;
-
-    background:black;
-
-    padding:20px;
-}
-
-.card-title{
-    padding:20px;
-
-    font-size:0.9rem;
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-}
-
-footer{
-    border-top:1px solid #111;
-
-    padding:40px;
-
-    text-align:center;
-
-    color:#666;
-
-    letter-spacing:2px;
-    font-size:0.7rem;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2rem;
-}
-
-.card img{
-    height:300px;
-}
-
-}
-
-</style>
+        /* WHATSAPP */
+        .wpp { position: fixed; bottom: 40px; right: 40px; background: #ffffff; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; transition: 0.5s; mix-blend-mode: difference; }
+        .wpp:hover { transform: scale(1.2); }
+    </style>
 </head>
 <body>
 
-<header>
+    <header>
+        <span class="motto">Nascido para Possuir</span>
+        <img src="logoazul.jpeg" alt="B2O">
+        <!-- Substituído "Preços" por "Sobre Nós" -->
+        <button class="nav-link" onclick="toggleModal()">SOBRE NÓS</button>
+    </header>
 
-<div class="logo">Born2Own</div>
+    <main>
+        <section class="hero">
+            <div class="hero-banner">
+                <img src="thebest.jpeg" alt="Collection">
+            </div>
+            <div class="hero-text">
+                <h1>BORN2OWN</h1>
+                <a href="https://wa.me" class="btn-shop">Shop WhatsApp</a>
+            </div>
+        </section>
 
-<a href="#" class="nav-btn">PREÇOS</a>
+        <span class="section-label">Selected Pieces</span>
+        <section class="gallery-grid">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="chapeus.jpeg"><div class="item-overlay"><h3>Hats Selection</h3></div></div>
+                <div class="gallery-item"><img src="manigue.jpeg"><div class="item-overlay"><h3>Manigue Series</h3></div></div>
+                <div class="gallery-item"><img src="amalaentao.jpeg"><div class="item-overlay"><h3>Amala Collection</h3></div></div>
+                <div class="gallery-item"><img src="mota.jpeg"><div class="item-overlay"><h3>Street Lifestyle</h3></div></div>
+                <div class="gallery-item"><img src="desenho.jpeg"><div class="item-overlay"><h3>Concept Art</h3></div></div>
+                <div class="gallery-item"><img src="celldeherton.jpeg"><div class="item-overlay"><h3>Limited Edition</h3></div></div>
+            </div>
+        </section>
+    </main>
 
-</header>
+    <!-- JANELA INTERNA FLUTUANTE (EFEITO YT KIDS) -->
+    <div class="modal-overlay" id="aboutModal" onclick="closeModalOutside(event)">
+        <div class="modal-window">
+            <button class="close-btn" onclick="toggleModal()">&times;</button>
+            <h2>BORN2OWN</h2>
+            <p>Uma marca de streetwear exclusiva estabelecida em Moçambique, focada em entregar respeito, disciplina e lealdade através de cortes modernos e alta qualidade.</p>
+            
+            <div class="modal-prices">
+                <h3 style="font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; color: #888;">TABELA DE INVESTIMENTO</h3>
+                <div><span>CHAPÉUS (HATS)</span> <span>850 MT</span></div>
+                <div><span>CAMISETAS (T-SHIRTS)</span> <span>2.500 MT</span></div>
+            </div>
+        </div>
+    </div>
 
-<section class="hero">
+    <footer>
+        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN OFFICIAL STORE
+    </footer>
 
-<h1>NASCIDO PARA POSSUIR</h1>
+    <a href="https://wa.me" class="wpp" target="_blank">
+        <img src="https://wikimedia.org" width="28" style="filter: invert(1);">
+    </a>
 
-<p>SELECTED PIECES</p>
-
-</section>
-
-<section class="prices" style="margin-top:-20px;">
-
-<div class="price-box">Chapeu
-    850 MT</div>
-<div class="price-box">T-shirt
-    2.500 MT</div>
-
-</section>
-
-<h2 class="section-title">SELECTED PIECES</h2>
-
-<section class="gallery">
-
-<div class="card">
-<img src="mandrack.jpeg" alt="shirt">
-<div class="card-title">Born2Own Tee</div>
-</div>
-
-<div class="card">
-<img src="mota.jpeg" alt="mota">
-<div class="card-title">Lifestyle</div>
-</div>
-
-<div class="card">
-<img src="supercap.jpeg" alt="bone">
-<div class="card-title">Born2Own Cap</div>
-</div>
-
-<div class="card">
-<img src="mandrack.jpeg" alt="shirt">
-<div class="card-title">Streetwear</div>
-</div>
-
-    <div class="card">
-<img src="Superstyle.jpeg" alt="angel shirt">
-<div class="card-title">New Drop</div>
-</div>
-</section>
-
-<footer>
-
-BORN2OWN © 2026...From Maputo TO The World
-
-</footer>
-
-<a href="https://wa.me/+258875970854" class="whatsapp-btn" target="_blank">
-WHATSAPP
-</a>
-
-<style>
-.whatsapp-btn{
-    font-size:14px;
-    position:fixed;
-    bottom:20px;
-    right:20px;
-
-    background:white;
-    color:black;
-
-    padding:15px 22px;
-
-    text-decoration:none;
-    font-weight:700;
-    letter-spacing:2px;
-
-    border-radius:50px;
-
-    transition:0.3s;
-
-    z-index:9999;
-}
-
-.whatsapp-btn:hover{
-    transform:scale(1.05);
-}
-</style>
+    <!-- SCRIPT PARA CONTROLAR A JANELA FLUTUANTE -->
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('aboutModal');
+            modal.classList.toggle('active');
+        }
+        function closeModalOutside(e) {
+            if(e.target.classList.contains('modal-overlay')) {
+                toggleModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
-
