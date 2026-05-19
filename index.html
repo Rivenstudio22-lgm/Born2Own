@@ -36,10 +36,8 @@
             align-items: center;
             border-bottom: 1px solid var(--gray);
         }
-        .motto { font-weight: 900; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted); }
         header img { height: 45px; filter: brightness(1.2); }
         
-        /* BOTÃO SOBRE NÓS */
         .nav-link { 
             background: none;
             cursor: pointer;
@@ -55,17 +53,8 @@
 
         /* HERO SECTION */
         .hero { padding: 20px 5%; max-width: 1600px; margin: 0 auto; }
-        .hero-banner { 
-            width: 100%; 
-            overflow: hidden; 
-            border: 1px solid var(--gray);
-            position: relative;
-        }
-        .hero-banner img { 
-            width: 100%; 
-            display: block; 
-            transition: 2s scale;
-        }
+        .hero-banner { width: 100%; overflow: hidden; border: 1px solid var(--gray); position: relative; }
+        .hero-banner img { width: 100%; display: block; transition: 2s scale; }
         .hero-banner:hover img { scale: 1.05; }
 
         .hero-text { padding: 60px 20px; }
@@ -85,7 +74,7 @@
         }
         .btn-shop:hover { letter-spacing: 8px; background: #e0e0e0; }
 
-        /* SEÇÃO DE PRODUTOS */
+        /* SEÇÃO DE PRODUTOS PRINCIPAL */
         .section-label { font-size: 0.7rem; letter-spacing: 8px; color: var(--text-muted); text-transform: uppercase; margin: 50px 0; display: block; }
         
         .gallery-grid { 
@@ -95,19 +84,8 @@
             padding: 10px; 
             background: var(--gray);
         }
-        .gallery-item { 
-            background: var(--bg); 
-            height: 600px; 
-            overflow: hidden; 
-            position: relative; 
-        }
-        .gallery-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            filter: grayscale(20%);
-            transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+        .gallery-item { background: var(--bg); height: 600px; overflow: hidden; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
         .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
         
         .item-overlay {
@@ -123,58 +101,87 @@
         .gallery-item:hover .item-overlay { opacity: 1; }
         .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; }
 
-        /* TELA FLUTUANTE EM FULL SCREEN (ECRÃ INTEIRO) */
+        /* TELA CHEIA "SOBRE NÓS" (ESTILO TELA APPS) */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             background: #000000;
             z-index: 2000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             opacity: 0;
             pointer-events: none;
-            transform: translateY(100%); /* Começa totalmente abaixo da tela */
+            transform: translateY(100%);
             transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
+            overflow-y: auto; /* Permite rolar a tela interna para baixo */
         }
         
-        .modal-window {
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Ativação do Full Screen */
         .modal-overlay.active { 
             opacity: 1; 
             pointer-events: auto; 
-            transform: translateY(0); /* Sobe cobrindo tudo */
+            transform: translateY(0); 
         }
 
         .close-btn {
-            position: absolute;
-            top: 40px; right: 5%;
-            background: none; border: none;
+            position: fixed;
+            top: 30px; right: 5%;
+            background: rgba(0,0,0,0.7); 
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--accent);
             color: var(--accent); 
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             letter-spacing: 3px;
             font-weight: 900;
             cursor: pointer;
-            border: 1px solid var(--accent);
             padding: 10px 20px;
             text-transform: uppercase;
+            z-index: 2100;
             transition: 0.3s;
         }
         .close-btn:hover { background: var(--accent); color: var(--bg); }
 
-        .modal-window h2 { font-family: 'Cinzel', serif; letter-spacing: 6px; margin-bottom: 30px; font-size: 2rem; }
-        .modal-window p { font-size: 1rem; color: #b3b3b3; line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
-        
-        .modal-prices { border-top: 1px solid #222; padding-top: 30px; text-align: left; }
-        .modal-prices h3 { font-size: 0.75rem; letter-spacing: 4px; margin-bottom: 20px; color: var(--text-muted); text-transform: uppercase; }
-        .modal-prices div { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 1rem; letter-spacing: 1px; padding-bottom: 10px; border-bottom: 1px solid #111; }
-        .modal-prices span { font-weight: bold; color: var(--accent); }
+        /* CONTEÚDO DA PÁGINA EM BRANCO (ESCURA) INTERNA */
+        .modal-content-wrapper {
+            width: 100%;
+            padding-bottom: 100px;
+        }
+
+        /* Banner sem cortes laterais (ocupa 100% da largura) */
+        .modal-full-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #111;
+        }
+
+        .modal-body-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .modal-body-section h2 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 6px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+        }
+
+        .modal-body-section p {
+            font-size: 1rem;
+            color: #b3b3b3;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .modal-display-img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 20px auto 40px auto;
+            display: block;
+            border: 1px solid #222;
+        }
 
         footer { padding: 80px 5%; border-top: 1px solid var(--gray); font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); }
 
@@ -186,7 +193,7 @@
 <body>
 
     <header>
-        <span class="motto">Nascido para Possuir</span>
+        <span style="font-weight: 900; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted);">Nascido para Possuir</span>
         <img src="logoazul.jpeg" alt="B2O">
         <button class="nav-link" onclick="toggleModal()">SOBRE NÓS</button>
     </header>
@@ -213,18 +220,36 @@
         </section>
     </main>
 
-    <!-- TELA CHEIA FLUTUANTE (FULL SCREEN EFFECT) -->
+    <!-- TELA INTERNA COMPLETA (MODAL FULL SCREEN) -->
     <div class="modal-overlay" id="aboutModal">
         <button class="close-btn" onclick="toggleModal()">Fechar X</button>
         
-        <div class="modal-window">
-            <h2>BORN2OWN</h2>
-            <p>Uma marca de streetwear exclusiva estabelecida em Moçambique, focada em entregar respeito, discipline e lealdade através de cortes modernos e alta qualidade.</p>
-            
-            <div class="modal-prices">
-                <h3>Tabela de Investimento</h3>
-                <div><span>CHAPÉUS (HATS)</span> <span>850 MT</span></div>
-                <div><span>CAMISETAS (T-SHIRTS)</span> <span>2.500 MT</span></div>
+        <div class="modal-content-wrapper">
+            <!-- BANNER COMPLETO SEM CORTES LATERAIS -->
+            <img src="modelo-preto.jpeg" class="modal-full-banner" alt="Born2Own Black Collection">
+
+            <!-- BLOCO 1: TEXTO + IMAGEM EM ORDEM -->
+            <div class="modal-body-section">
+                <h2>THE BLACK DROP</h2>
+                <p>Nossa t-shirt streetwear oversize em algodão premium pesado. Grafismos urbanos fluidos e numeração nas costas que trazem a essência da cultura de rua para o patamar de luxo. Investimento: 2.500 MT.</p>
+                <img src="mockup-preto.jpeg" class="modal-display-img" alt="Camisete Preta Mockup">
+            </div>
+
+            <!-- BANNER 2: MODELOS EM BRANCO -->
+            <img src="modelo-branco.jpeg" class="modal-full-banner" alt="Born2Own White Collection">
+
+            <!-- BLOCO 2: TEXTO + IMAGEM EM ORDEM -->
+            <div class="modal-body-section">
+                <h2>THE WHITE DROP</h2>
+                <p>Equilíbrio perfeito entre o minimalismo do tecido branco e o impacto do contraste em preto. Caimento impecável projetado para manter a estrutura original após o uso. Investimento: 2.500 MT.</p>
+                <img src="mockup-branco.jpeg" class="modal-display-img" alt="Camisete Branca Mockup">
+            </div>
+
+            <!-- BLOCO 3: TEXTO + IMAGEM FINAL (DROP 777) -->
+            <div class="modal-body-section" style="border-top: 1px solid #111;">
+                <h2>CONCEPT 777</h2>
+                <p>Tipografia gótica agressiva na parte traseira, unindo herança e rebeldia urbana em uma peça limitada. Disponível exclusivamente sob consulta via atendimento.</p>
+                <img src="mockup-777.jpeg" class="modal-display-img" alt="Drop 777 Mockup">
             </div>
         </div>
     </div>
@@ -242,7 +267,6 @@
             const modal = document.getElementById('aboutModal');
             modal.classList.toggle('active');
             
-            // Bloqueia o scroll do site ao fundo enquanto o menu estiver aberto
             if(modal.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
