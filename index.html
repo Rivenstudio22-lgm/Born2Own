@@ -33,7 +33,7 @@
             background: rgba(0,0,0,0.95); 
             backdrop-filter: blur(15px);
             position: sticky; 
- Top: 0; 
+            top: 0; 
             z-index: 1000; 
             display: flex; 
             justify-content: space-between; 
@@ -55,13 +55,13 @@
         }
         .nav-link:hover { background: var(--accent); color: var(--bg); }
 
-        /* HERO SECTION - IMAGEM TOTALMENTE VISÍVEL */
+        /* HERO SECTION */
         .hero { width: 100%; padding: 0; margin: 0; text-align: center; background: #000; }
         .hero-banner { width: 100%; overflow: hidden; border-bottom: 1px solid var(--gray); display: flex; justify-content: center; }
         .hero-banner img { 
             width: 100%; 
-            max-height: 85vh; /* Não deixa o banner passar da altura do ecrã */
-            object-fit: contain; /* Mantém as laterais 100% visíveis */
+            max-height: 85vh; 
+            object-fit: contain; 
             display: block; 
             transition: 1.5s transform; 
         }
@@ -84,13 +84,13 @@
         }
         .btn-shop:hover { letter-spacing: 8px; background: #e0e0e0; }
 
-        /* SEÇÃO DE PRODUTOS - FOCO TOTAL NA VISIBILIDADE DAS LATERAIS */
+        /* SEÇÃO DE PRODUTOS */
         .section-label { font-size: 0.7rem; letter-spacing: 8px; color: var(--text-muted); text-transform: uppercase; margin: 50px 4%; display: block; }
         
         .gallery-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 40px; /* Espaço amplo e limpo entre produtos */
+            gap: 40px; 
             padding: 0 4%; 
             width: 100%;
             background: var(--bg);
@@ -106,10 +106,10 @@
         
         .gallery-item img { 
             width: 100%; 
-            height: 500px; /* Altura limite padrão */
-            max-height: 75vh; /* Limita a altura em ecrãs pequenos para não cortar os lados */
-            object-fit: contain; /* Encaixa a imagem inteira sem cortar nenhuma lateral */
-            background: #050505; /* Fundo escuro suave para preencher caso a imagem seja estreita */
+            height: 500px; 
+            max-height: 75vh; 
+            object-fit: contain; 
+            background: #050505; 
             filter: grayscale(10%); 
             transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); 
         }
@@ -124,7 +124,7 @@
         }
         .item-details h3 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
 
-        /* POPUP "SOBRE NÓS" */
+        /* JANELA MODAL "SOBRE NÓS" (IMERSIVA E SEM CORTES) */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -166,10 +166,20 @@
             padding-bottom: 100px;
         }
 
+        /* BANNER SOBRE NÓS - SEM CORTES LATERAIS */
+        .modal-full-banner {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            background: #050505;
+            border-bottom: 1px solid var(--gray);
+        }
+
         .modal-body-section {
             max-width: 800px;
             margin: 0 auto;
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
@@ -185,7 +195,18 @@
             color: #b3b3b3;
             line-height: 1.8;
             font-weight: 300;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* IMAGEM SECUNDÁRIA SOBRE NÓS - SEM CORTES LATERAIS */
+        .modal-display-img {
+            width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            background: #050505;
+            margin: 0 auto 40px auto;
+            display: block;
+            border: 1px solid #222;
         }
 
         footer { padding: 80px 4%; border-top: 1px solid var(--gray); font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); text-align: center; margin-top: 80px; }
@@ -241,17 +262,17 @@
         </section>
     </main>
 
-    <!-- POPUP SOBRE NÓS -->
+    <!-- POPUP/MODAL SOBRE NÓS CORRIGIDO -->
     <div class="modal-overlay" id="aboutModal">
         <button class="close-btn" onclick="toggleModal()">Fechar</button>
         <div class="modal-content-wrapper">
+            <!-- Banner Inicial Interno -->
+            <img src="thebest.jpeg" alt="About Banner" class="modal-full-banner">
+            
             <div class="modal-body-section">
                 <h2>BORN2OWN</h2>
                 <p>Nascido para possuir. Uma marca focada na exclusividade, na cultura urbana e no design de luxo. Cada peça reflete uma identidade forte e um estilo de vida autêntico.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- BOTÃO WHATSAPP -->
-    <a href="https://wa.me" target="_blank" class="wpp" aria-label="Contacto via WhatsApp">
-        <svg viewBox="0 0 24 24">
+                
+                <!-- Imagem Secundária Interna -->
+                <img src="mota.jpeg" alt="Brand Concept" class="modal-display-img">
+                
