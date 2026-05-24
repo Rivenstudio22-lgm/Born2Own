@@ -1,279 +1,322 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BORN2OWN | Luxury Streetwear</title>
+    <title>REIVENSTUDIO | Criação de Sites</title>
+    <!-- Fonte Google para um aspeto mais profissional -->
     <link href="https://googleapis.com" rel="stylesheet">
+    
     <style>
-        :root { 
-            --bg: #000000;
-            --accent: #ffffff;
-            --gray: #1a1a1a;
-            --text-muted: #888888;
+        /* RESET E ESTILOS GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body { 
-            background-color: var(--bg); 
-            color: var(--accent); 
-            font-family: 'Montserrat', sans-serif; 
+        body {
+            background-color: #0d0f12;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
 
-        /* HEADER LUXO */
-        header { 
-            padding: 20px 5%; 
-            background: rgba(0,0,0,0.95); 
-            backdrop-filter: blur(15px);
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            display: flex; 
-            justify-content: space-between; 
+        /* HERO / CABEÇALHO DA PÁGINA */
+        header {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            background: linear-gradient(180deg, #171923 0%, #0d0f12 100%);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        header h1 span {
+            color: #ffcc00;
+        }
+
+        header p {
+            color: #a0aec0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SECÇÃO DE PREÇOS */
+        .pricing-section {
+            padding: 60px 20px;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* CABEÇALHOS DAS CATEGORIAS */
+        .category-header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        .category-header h3 {
+            font-size: 1.8rem;
+            color: #ffcc00;
+            margin-bottom: 12px;
+            display: inline-flex;
             align-items: center;
-            border-bottom: 1px solid var(--gray);
+            gap: 10px;
         }
-        header img { height: 45px; filter: brightness(1.2); }
-        
-        .nav-link { 
-            background: none;
-            cursor: pointer;
-            color: var(--accent); 
-            font-size: 0.7rem; 
-            letter-spacing: 3px; 
-            font-weight: 900;
-            border: 1px solid var(--accent);
-            padding: 10px 25px;
-            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+        .vip-features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #cbd5e0;
+            background: rgba(255, 204, 0, 0.05);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 204, 0, 0.1);
+            width: fit-content;
+            margin: 0 auto;
         }
-        .nav-link:hover { background: var(--accent); color: var(--bg); }
 
-        /* HERO SECTION */
-        .hero { padding: 20px 5%; max-width: 1600px; margin: 0 auto; }
-        .hero-banner { width: 100%; overflow: hidden; border: 1px solid var(--gray); position: relative; }
-        .hero-banner img { width: 100%; display: block; transition: 2s scale; }
-        .hero-banner:hover img { scale: 1.05; }
-
-        .hero-text { padding: 60px 20px; }
-        .hero-text h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: 10px; margin-bottom: 40px; }
-        
-        .btn-shop { 
-            background: var(--accent); 
-            color: var(--bg); 
-            padding: 22px 60px; 
-            font-weight: 900; 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            transition: 0.5s;
+        .category-warning {
+            color: #fc8181;
+            font-weight: 500;
+            font-size: 1rem;
+            background: rgba(252, 129, 129, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
             display: inline-block;
         }
-        .btn-shop:hover { letter-spacing: 8px; background: #e0e0e0; }
 
-        /* SEÇÃO DE PRODUTOS PRINCIPAL */
-        .section-label { font-size: 0.7rem; letter-spacing: 8px; color: var(--text-muted); text-transform: uppercase; margin: 50px 0; display: block; }
-        
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-            gap: 10px; 
-            padding: 10px; 
-            background: var(--gray);
+        /* GRELHA DE CARDS */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
         }
-        .gallery-item { background: var(--bg); height: 600px; overflow: hidden; position: relative; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
-        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
-        
-        .item-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+
+        /* CARDS DE PREÇO */
+        .price-card {
+            background: #171923;
+            border: 1px solid #2d3748;
+            border-radius: 16px;
+            padding: 35px 20px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            align-items: flex-end;
-            padding: 40px;
-            opacity: 0;
-            transition: 0.5s;
-        }
-        .gallery-item:hover .item-overlay { opacity: 1; }
-        .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; }
-
-        /* TELA CHEIA "SOBRE NÓS" (ESTILO TELA APPS) */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: #000000;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
-            overflow-y: auto; /* Permite rolar a tela interna para baixo */
-        }
-        
-        .modal-overlay.active { 
-            opacity: 1; 
-            pointer-events: auto; 
-            transform: translateY(0); 
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .close-btn {
-            position: fixed;
-            top: 30px; right: 5%;
-            background: rgba(0,0,0,0.7); 
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--accent);
-            color: var(--accent); 
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            font-weight: 900;
-            cursor: pointer;
-            padding: 10px 20px;
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        /* DESTAQUE VIP */
+        .vip-card {
+            border-color: rgba(255, 204, 0, 0.2);
+        }
+
+        .price-card.featured {
+            border: 2px solid #ffcc00;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.15);
+        }
+
+        /* BADGES / ETIQUETAS */
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d3748;
+            color: #ffcc00;
+            padding: 5px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 20px;
+            border: 1px solid #ffcc00;
             text-transform: uppercase;
-            z-index: 2100;
-            transition: 0.3s;
-        }
-        .close-btn:hover { background: var(--accent); color: var(--bg); }
-
-        /* CONTEÚDO DA PÁGINA EM BRANCO (ESCURA) INTERNA */
-        .modal-content-wrapper {
-            width: 100%;
-            padding-bottom: 100px;
+            letter-spacing: 0.5px;
         }
 
-        /* Banner sem cortes laterais (ocupa 100% da largura) */
-        .modal-full-banner {
-            width: 100%;
-            height: auto;
+        .price-card.featured .badge {
+            background: #ffcc00;
+            color: #0d0f12;
+        }
+
+        .price-card h4 {
+            font-size: 1.3rem;
+            margin: 15px 0 10px 0;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .price span {
+            font-size: 1.1rem;
+            color: #a0aec0;
+            font-weight: 500;
+        }
+
+        /* BOTÕES DE COMPRA */
+        .btn-buy {
             display: block;
-            border-bottom: 1px solid #111;
-        }
-
-        .modal-body-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
             text-align: center;
         }
 
-        .modal-body-section h2 {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 6px;
-            font-size: 2.2rem;
-            margin-bottom: 25px;
+        .vip-btn {
+            background: #ffcc00;
+            color: #0d0f12;
+            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.2);
         }
 
-        .modal-body-section p {
-            font-size: 1rem;
-            color: #b3b3b3;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 40px;
+        .vip-btn:hover {
+            background: #e6b800;
+            transform: scale(1.02);
         }
 
-        .modal-display-img {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            margin: 20px auto 40px auto;
-            display: block;
-            border: 1px solid #222;
+        .simple-btn {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #4a5568;
         }
 
-        footer { padding: 80px 5%; border-top: 1px solid var(--gray); font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); }
+        .simple-btn:hover {
+            background: #2d3748;
+            border-color: #718096;
+        }
 
-        /* WHATSAPP */
-        .wpp { position: fixed; bottom: 40px; right: 40px; background: #ffffff; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; transition: 0.5s; mix-blend-mode: difference; }
-        .wpp:hover { transform: scale(1.2); }
+        /* LINHA DIVISÓRIA */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #2d3748, transparent);
+            margin: 50px 0 70px 0;
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #171923;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid #2d3748;
+        }
+
+        /* RESPONSIVIDADE PARA TELEMÓVEIS */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 0 auto 40px auto;
+            }
+            .vip-features {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                border-radius: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- CABEÇALHO -->
     <header>
-        <span style="font-weight: 900; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted);">Nascido para Possuir</span>
-        <img src="logoazul.jpeg" alt="B2O">
-        <button class="nav-link" onclick="toggleModal()">SOBRE NÓS</button>
+        <h1>REIVEN<span>STUDIO</span></h1>
+        <p>Soluções profissionais de design e desenvolvimento web para destacar o seu negócio.</p>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-banner">
-                <img src="thebest.jpeg" alt="Collection">
-            </div>
-            <div class="hero-text">
-                <h1>BORN2OWN</h1>
-                <a href="https://wa.me" class="btn-shop">Shop WhatsApp</a>
-            </div>
-        </section>
-
-        <span class="section-label">Selected Pieces</span>
-        <section class="gallery-grid">
-            <div class="gallery-item"><img src="supercap.jpeg"><div class="item-overlay"><h3>Hats Selection</h3></div></div>
-            <div class="gallery-item"><img src="manigue.jpeg"><div class="item-overlay"><h3>Manigue Series</h3></div></div>
-            <div class="gallery-item"><img src="amalaentao.jpeg"><div class="item-overlay"><h3>Amala Collection</h3></div></div>
-            <div class="gallery-item"><img src="mota.jpeg"><div class="item-overlay"><h3>Street Lifestyle</h3></div></div>
-            <div class="gallery-item"><img src="desenho.jpeg"><div class="item-overlay"><h3>Concept Art</h3></div></div>
-            <div class="gallery-item"><img src="celldeherton.jpeg"><div class="item-overlay"><h3>Limited Edition</h3></div></div>
-        </section>
-    </main>
-
-    <!-- TELA INTERNA COMPLETA (MODAL FULL SCREEN) -->
-    <div class="modal-overlay" id="aboutModal">
-        <button class="close-btn" onclick="toggleModal()">Fechar X</button>
-        
-        <div class="modal-content-wrapper">
-            <!-- BANNER COMPLETO SEM CORTES LATERAIS -->
-            <img src="modelo-preto.jpeg" class="modal-full-banner" alt="Born2Own Black Collection">
-
-            <!-- BLOCO 1: TEXTO + IMAGEM EM ORDEM -->
-            <div class="modal-body-section">
-                <h2>THE BLACK DROP</h2>
-                <p>Nossa t-shirt streetwear oversize em algodão premium pesado. Grafismos urbanos fluidos e numeração nas costas que trazem a essência da cultura de rua para o patamar de luxo. Investimento: 2.500 MT.</p>
-                <img src="mockup-preto.jpeg" class="modal-display-img" alt="Camisete Preta Mockup">
-            </div>
-
-            <!-- BANNER 2: MODELOS EM BRANCO -->
-            <img src="modelo-branco.jpeg" class="modal-full-banner" alt="Born2Own White Collection">
-
-            <!-- BLOCO 2: TEXTO + IMAGEM EM ORDEM -->
-            <div class="modal-body-section">
-                <h2>THE WHITE DROP</h2>
-                <p>Equilíbrio perfeito entre o minimalismo do tecido branco e o impacto do contraste em preto. Caimento impecável projetado para manter a estrutura original após o uso. Investimento: 2.500 MT.</p>
-                <img src="mockup-branco.jpeg" class="modal-display-img" alt="Camisete Branca Mockup">
-            </div>
-
-            <!-- BLOCO 3: TEXTO + IMAGEM FINAL (DROP 777) -->
-            <div class="modal-body-section" style="border-top: 1px solid #111;">
-                <h2>CONCEPT 777</h2>
-                <p>Tipografia gótica agressiva na parte traseira, unindo herança e rebeldia urbana em uma peça limitada. Disponível exclusivamente sob consulta via atendimento.</p>
-                <img src="mockup-777.jpeg" class="modal-display-img" alt="Drop 777 Mockup">
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN OFFICIAL STORE
-    </footer>
-
-    <a href="https://wa.me" class="wpp" target="_blank">
-        <img src="https://wikimedia.org" width="28" style="filter: invert(1);">
-    </a>
-
-    <script>
-        function toggleModal() {
-            const modal = document.getElementById('aboutModal');
-            modal.classList.toggle('active');
+    <!-- SECÇÃO PRINCIPAL DE PREÇOS -->
+    <section class="pricing-section">
+        <div class="pricing-container">
             
-            if(modal.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
+            <!-- CATEGORIA: PLANOS VIP -->
+            <div class="category-header">
+                <h3>⭐ Experiência VIP</h3>
+                <div class="vip-features">
+                    <span>⏱ Entrega em 42h</span>
+                    <span>🌐 Domínio Incluído</span>
+                    <span>🛠 Direito a Manutenção</span>
+                </div>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Página Canva VIP -->
+                <div class="price-card vip-card">
+                    <div class="badge">Domínio Grátis</div>
+                    <h4>Página Canva VIP</h4>
+                    <div class="price">2.000 <span>MT</span></div>
+                    <a href="https://wa.me" class="btn-buy vip-btn" target="_blank">Falar no WhatsApp</a>
+                </div>
 
-</body>
-</html>
+                <!-- Site Pessoal VIP (Destaque) -->
+                <div class="price-card vip-card featured">
+                    <div class="badge">Mais Vendido</div>
+                    <h4>Site Pessoal VIP</h4>
+                    <div class="price">2.500 <span>MT</span></div>
+                    <a href="https://wa.me" class="btn-buy vip-btn" target="_blank">Falar no WhatsApp</a>
+                </div>
+
+                <!-- Marca / Roupa VIP -->
+                <div class="price-card vip-card">
+                    <div class="badge">Domínio Grátis</div>
+                    <h4>Marca / Roupa VIP</h4>
+                    <div class="price">4.500 <span>MT</span></div>
+                    <a href="https://wa.me" class="btn-buy vip-btn" target="_blank">Falar no WhatsApp</a>
+                </div>
+
+                <!-- Restaurante VIP -->
+                <div class="price-card vip-card">
+                    <div class="badge">Domínio Grátis</div>
+                    <h4>Restaurante VIP</h4>
+                    <div class="price">6.500 <span>MT</span></div>
+                    <a href="https://wa.me" class="btn-buy vip-btn" target="_blank">Falar no WhatsApp</a>
+                </div>
+
+                <!-- Web App VIP -->
+                <div class="price-card vip-card">
+                    <div class="badge">Domínio Grátis</div>
+                    <h4>Web App VIP</h4>
+                    <div class="price">8.500 <span>MT</span></div>
+                    <a href="https://wa.me" class="btn-buy vip-btn" target="_blank">Falar no WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- LINHA DIVISÓRIA VISUAL -->
+            <hr class="section-divider">
+
+            <!-- CATEGORIA: PLANOS SIMPLES -->
+            <div class="category-header">
+                <h3>Pacotes Simples</h3>
+                <p class="category-warning">⚠️ Preços apenas por design e montagem. Sem domínio incluído!</p>
+            </div>
+            
