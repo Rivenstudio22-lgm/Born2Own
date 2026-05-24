@@ -33,7 +33,7 @@
             background: rgba(0,0,0,0.95); 
             backdrop-filter: blur(15px);
             position: sticky; 
-            top: 0; 
+ Top: 0; 
             z-index: 1000; 
             display: flex; 
             justify-content: space-between; 
@@ -55,13 +55,19 @@
         }
         .nav-link:hover { background: var(--accent); color: var(--bg); }
 
-        /* HERO SECTION - IMAGEM COMPLETA SEM CORTE */
-        .hero { width: 100%; padding: 0; margin: 0; }
-        .hero-banner { width: 100%; overflow: hidden; border-bottom: 1px solid var(--gray); position: relative; }
-        .hero-banner img { width: 100%; height: auto; display: block; transition: 2s transform; }
-        .hero-banner:hover img { transform: scale(1.03); }
+        /* HERO SECTION - IMAGEM TOTALMENTE VISÍVEL */
+        .hero { width: 100%; padding: 0; margin: 0; text-align: center; background: #000; }
+        .hero-banner { width: 100%; overflow: hidden; border-bottom: 1px solid var(--gray); display: flex; justify-content: center; }
+        .hero-banner img { 
+            width: 100%; 
+            max-height: 85vh; /* Não deixa o banner passar da altura do ecrã */
+            object-fit: contain; /* Mantém as laterais 100% visíveis */
+            display: block; 
+            transition: 1.5s transform; 
+        }
+        .hero-banner:hover img { transform: scale(1.02); }
 
-        .hero-text { padding: 60px 4%; }
+        .hero-text { padding: 60px 4%; text-align: left; }
         .hero-text h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 4rem); letter-spacing: 10px; margin-bottom: 40px; }
         
         .btn-shop { 
@@ -78,23 +84,37 @@
         }
         .btn-shop:hover { letter-spacing: 8px; background: #e0e0e0; }
 
-        /* SEÇÃO DE PRODUTOS - PROPORÇÃO ORIGINAL DAS IMAGENS */
+        /* SEÇÃO DE PRODUTOS - FOCO TOTAL NA VISIBILIDADE DAS LATERAIS */
         .section-label { font-size: 0.7rem; letter-spacing: 8px; color: var(--text-muted); text-transform: uppercase; margin: 50px 4%; display: block; }
         
         .gallery-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 20px; /* Espaço elegante entre os produtos */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; /* Espaço amplo e limpo entre produtos */
             padding: 0 4%; 
             width: 100%;
             background: var(--bg);
         }
-        /* Removeu-se a altura fixa de 600px para a imagem ditar a sua própria altura */
-        .gallery-item { background: var(--bg); overflow: hidden; position: relative; width: 100%; }
-        .gallery-item img { width: 100%; height: auto; display: block; filter: grayscale(15%); transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
-        .gallery-item:hover img { transform: scale(1.03); filter: grayscale(0%); }
         
-        /* Ajuste do título para o estilo minimalista abaixo da imagem completa */
+        .gallery-item { 
+            background: var(--bg); 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            width: 100%; 
+        }
+        
+        .gallery-item img { 
+            width: 100%; 
+            height: 500px; /* Altura limite padrão */
+            max-height: 75vh; /* Limita a altura em ecrãs pequenos para não cortar os lados */
+            object-fit: contain; /* Encaixa a imagem inteira sem cortar nenhuma lateral */
+            background: #050505; /* Fundo escuro suave para preencher caso a imagem seja estreita */
+            filter: grayscale(10%); 
+            transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); 
+        }
+        .gallery-item:hover img { transform: scale(1.02); filter: grayscale(0%); }
+        
         .item-details {
             padding: 15px 0;
             display: flex;
@@ -221,7 +241,7 @@
         </section>
     </main>
 
-    <!-- POPUP/MODAL SOBRE NÓS -->
+    <!-- POPUP SOBRE NÓS -->
     <div class="modal-overlay" id="aboutModal">
         <button class="close-btn" onclick="toggleModal()">Fechar</button>
         <div class="modal-content-wrapper">
@@ -232,6 +252,6 @@
         </div>
     </div>
 
-    <!-- ÍCONE FLUTUANTE DO WHATSAPP -->
+    <!-- BOTÃO WHATSAPP -->
     <a href="https://wa.me" target="_blank" class="wpp" aria-label="Contacto via WhatsApp">
         <svg viewBox="0 0 24 24">
