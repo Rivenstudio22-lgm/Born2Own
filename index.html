@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BORN2OWN | Luxury Streetwear</title>
-    <!-- Importação correta das fontes Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;900&display=swap" rel="stylesheet">
     <style>
         :root { 
             --bg: #000000;
@@ -50,6 +49,8 @@
             font-weight: 900;
             border: 1px solid var(--accent);
             padding: 10px 25px;
+            position: relative;
+            z-index: 1010;
             transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         .nav-link:hover { background: var(--accent); color: var(--bg); }
@@ -57,7 +58,6 @@
         /* HERO SECTION */
         .hero { padding: 20px 5%; max-width: 1600px; margin: 0 auto; }
         .hero-banner { width: 100%; overflow: hidden; border: 1px solid var(--gray); position: relative; }
-        /* height auto e max-width garantem que o banner principal nunca corte */
         .hero-banner img { width: 100%; height: auto; display: block; transition: 2s scale; }
         .hero-banner:hover img { scale: 1.05; }
 
@@ -88,7 +88,6 @@
             padding: 15px; 
             background: var(--gray);
         }
-        /* Ajustado para proporcional (auto) sem altura fixa de 600px para não cortar as fotos */
         .gallery-item { background: var(--bg); height: auto; overflow: hidden; position: relative; border: 1px solid #111; }
         .gallery-item img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
         .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
@@ -106,84 +105,101 @@
         .gallery-item:hover .item-overlay { opacity: 1; }
         .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: #fff; }
 
-        /* TELA CHEIA "SOBRE NÓS" */
+        /* TELA CHEIA "SOBRE NÓS" (ESTILO YOUTUBE KIDS OVERLAY) */
         .modal-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh;
             background: #000000;
             z-index: 2000;
             opacity: 0;
             pointer-events: none;
-            transform: translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
+            transform: scale(0.95); /* Começa ligeiramente menor para o efeito de expansão */
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
             overflow-y: auto;
         }
         
+        /* Expande e ocupa todo o ecrã sem fechar a página de trás */
         .modal-overlay.active { 
             opacity: 1; 
-            pointer-events: auto; 
-            transform: translateY(0); 
+            pointer-events: auto !important; 
+            transform: scale(1); 
         }
 
         .close-btn {
             position: fixed;
             top: 30px; right: 5%;
-            background: rgba(0,0,0,0.7); 
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(10px);
             border: 1px solid var(--accent);
             color: var(--accent); 
             font-size: 0.7rem;
             letter-spacing: 3px;
             font-weight: 900;
             cursor: pointer;
-            padding: 10px 20px;
+            padding: 12px 28px;
             text-transform: uppercase;
             z-index: 2100;
             transition: 0.3s;
         }
         .close-btn:hover { background: var(--accent); color: var(--bg); }
 
+        /* ESTRUTURA DE CONTEÚDO DO SOBRE NÓS */
         .modal-content-wrapper {
             width: 100%;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
         }
 
-        .modal-full-banner {
+        /* Banner principal do topo */
+        .modal-main-banner {
             width: 100%;
-            height: auto;
+            height: 70vh;
+            object-fit: cover;
             display: block;
-            border-bottom: 1px solid #111;
+            border-bottom: 1px solid var(--gray);
         }
 
-        .modal-body-section {
-            max-width: 800px;
+        /* Container dos blocos de conteúdo */
+        .about-story-container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 20px;
+        }
+
+        /* Cada bloco de imagem + texto */
+        .story-block {
+            margin-top: 80px;
             text-align: center;
         }
 
-        .modal-body-section h2 {
+        .story-block h2 {
             font-family: 'Cinzel', serif;
             letter-spacing: 6px;
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
-        .modal-body-section p {
+        .story-block img {
+            width: 100%;
+            height: auto;
+            max-height: 650px;
+            object-fit: contain; /* Garante que nenhuma imagem seja recortada lateralmente */
+            border: 1px solid #1a1a1a;
+            background: #050505;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .story-block p {
             font-size: 1rem;
             color: #b3b3b3;
             line-height: 1.8;
             font-weight: 300;
-            margin-bottom: 40px;
-        }
-
-        .modal-display-img {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            margin: 20px auto 40px auto;
-            display: block;
-            border: 1px solid #222;
+            max-width: 750px;
+            margin: 30px auto 0 auto;
         }
 
         footer { padding: 80px 5%; border-top: 1px solid var(--gray); font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; }
@@ -199,7 +215,7 @@
     <header>
         <span style="font-weight: 900; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted);">Nascido para Possuir</span>
         <img src="logoazul.jpeg" alt="B2O">
-        <button class="nav-link" onclick="toggleModal()">SOBRE NÓS</button>
+        <button class="nav-link" type="button" onclick="toggleModal()">SOBRE NÓS</button>
     </header>
 
     <main>
@@ -225,19 +241,17 @@
         </section>
     </main>
 
-    <!-- SOBRE NÓS MODAL -->
+    <!-- SOBRE NÓS MODAL (EXPANSÃO ESTILO YOUTUBE KIDS) -->
     <div class="modal-overlay" id="aboutModal">
-        <button class="close-btn" onclick="toggleModal()">Fechar</button>
+        <button class="close-btn" type="button" onclick="toggleModal()">Voltar</button>
+        
         <div class="modal-content-wrapper">
-            <img src="thebest.jpeg" class="modal-full-banner" alt="Banner Sobre">
-            <div class="modal-body-section">
-                <h2>BORN2OWN</h2>
-                <p>Nascido para possuir o topo. Uma assinatura de streetwear de luxo que combina a estética urbana e a exclusividade do design contemporâneo.</p>
-                <img src="manigue.jpeg" class="modal-display-img" alt="Destaque">
-            </div>
-        </div>
-    </div>
+            <!-- 1. BANNER DO TOPO -->
+            <img src="sobre-banner.jpg" class="modal-main-banner" alt="Banner Principal Sobre Nós">
 
-    <!-- Botão flutuante do WhatsApp em SVG limpo (Substitui imagem recortada) -->
-    <a href="https://wa.me" target="_blank" class="wpp" aria-label="Contato via WhatsApp">
-        <svg viewBox="0 0 24 24">
+            <div class="about-story-container">
+                
+                <!-- 2. PRIMEIRO BLOCO DE IMAGEM + TEXTO -->
+                <div class="story-block">
+                    <h2>A Origem</h2>
+                    <img src="sobre-1.jpg" alt="Primeira Imagem Descritiva">
