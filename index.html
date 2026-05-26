@@ -14,17 +14,18 @@
             box-sizing: border-box;
         }
 
-        body, html {
+        html, body {
+            width: 100%;
+            min-height: 100vh;
             background: #000;
             color: #fff;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            width: 100%;
         }
 
         header {
-            padding: 20px 4%;
-            background: rgba(0,0,0,0.95);
+            padding: 20px 15px;
+            background: rgba(0,0,0,0.98);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -34,13 +35,13 @@
             border-bottom: 1px solid #222;
         }
 
-        .container {
+        .main-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 4%;
+            padding: 0 15px;
         }
 
-        .hero img {
+        .hero img, .gallery-item img {
             width: 100%;
             display: block;
         }
@@ -50,19 +51,18 @@
             letter-spacing: 8px;
             color: #888;
             text-transform: uppercase;
-            margin: 50px 0 20px;
+            margin: 40px 0 15px 15px;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 12px;
         }
 
         .gallery-item {
-            height: 520px;
+            height: 480px;
             overflow: hidden;
-            position: relative;
             background: #111;
         }
 
@@ -73,16 +73,12 @@
             transition: 1.2s;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
         footer {
-            padding: 60px 4%;
+            padding: 40px 15px;
             text-align: center;
             font-size: 0.65rem;
-            color: #666;
-            letter-spacing: 3px;
+            color: #555;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -91,15 +87,15 @@
     <header>
         <span style="font-weight:900; font-size:0.65rem; letter-spacing:5px; color:#888;">NASCIDO PARA POSSUIR</span>
         <img src="logoazul.jpeg" alt="BORN2OWN" height="45">
-        <button onclick="navigateTo('about')" style="background:none; border:1px solid #fff; color:#fff; padding:10px 25px; font-weight:900; cursor:pointer;">SOBRE NÓS</button>
+        <button onclick="navigateTo('about')" style="background:none; border:1px solid white; color:white; padding:10px 20px; font-weight:900; cursor:pointer; font-size:0.75rem;">SOBRE NÓS</button>
     </header>
 
-    <div class="container">
+    <div class="main-container">
         <div class="hero">
-            <img src="thebest.jpeg" alt="Hero Image">
+            <img src="thebest.jpeg" alt="Hero">
         </div>
 
-        <span class="section-label">Selected Pieces</span>
+        <span class="section-label">SELECTED PIECES</span>
         
         <div class="gallery-grid">
             <div class="gallery-item"><img src="supercap.jpeg" alt=""></div>
@@ -108,25 +104,19 @@
             <div class="gallery-item"><img src="mota.jpeg" alt=""></div>
             <div class="gallery-item"><img src="desenho.jpeg" alt=""></div>
             <div class="gallery-item"><img src="celldeherton.jpeg" alt=""></div>
-            
-            <!-- Nova imagem que enviaste -->
-            <div class="gallery-item"><img src="LT3WY" alt="Born2Own Collage"></div>
-            
-            <!-- Aqui podes adicionar as outras duas imagens que faltam -->
-            <!-- <div class="gallery-item"><img src="nome-da-imagem1.jpg" alt=""></div> -->
-            <!-- <div class="gallery-item"><img src="nome-da-imagem2.jpg" alt=""></div> -->
+            <div class="gallery-item"><img src="LT3WY" alt="Collage"></div>
+            <!-- Adiciona aqui as outras duas imagens -->
+            <!-- <div class="gallery-item"><img src="imagem8.jpeg" alt=""></div> -->
         </div>
     </div>
 
     <footer>
-        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN OFFICIAL
+        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN
     </footer>
 
     <script>
-        function navigateTo(page) {
-            if (page === 'about') {
-                alert("Página Sobre Nós em breve...");
-            }
+        function navigateTo() {
+            alert("Página Sobre Nós em breve...");
         }
     </script>
 </body>
