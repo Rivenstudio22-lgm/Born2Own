@@ -103,29 +103,33 @@
         .gallery-item:hover .item-overlay { opacity: 1; }
         .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; }
 
-        /* TELA CHEIA "SOBRE NÓS" */
+        /* TELA CHEIA ESTILO INSTANTÂNEO (YOUTUBE / APP OVERLAY) */
         .modal-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh;
             background: #000000;
             z-index: 2000;
             opacity: 0;
             pointer-events: none;
-            transform: translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
+            transform: scale(0.98);
+            transition: opacity 0.3s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
             overflow-y: auto;
         }
         
+        /* QUANDO ATIVO, DETÉM TODO O ECRÃ INSTANTANEAMENTE */
         .modal-overlay.active { 
             opacity: 1; 
             pointer-events: auto; 
-            transform: translateY(0); 
+            transform: scale(1); 
         }
 
         .close-btn {
             position: fixed;
             top: 30px; right: 5%;
-            background: rgba(0,0,0,0.7); 
+            background: rgba(0,0,0,0.85); 
             backdrop-filter: blur(5px);
             border: 1px solid var(--accent);
             color: var(--accent); 
@@ -133,7 +137,7 @@
             letter-spacing: 3px;
             font-weight: 900;
             cursor: pointer;
-            padding: 10px 20px;
+            padding: 12px 24px;
             text-transform: uppercase;
             z-index: 2100;
             transition: 0.3s;
@@ -221,7 +225,7 @@
         </section>
     </main>
 
-    <!-- INTERFACE MODAL CONFIGURADA CORRETAMENTE -->
+    <!-- INTERFACE DO MODAL ESTILO INSTANT OVERLAY APP -->
     <div class="modal-overlay" id="aboutModal">
         <button class="close-btn" onclick="toggleModal()">Fechar X</button>
         
@@ -246,11 +250,3 @@
                 <h2>CONCEPT 777</h2>
                 <p>Tipografia gótica agressiva na parte traseira, unindo herança e rebeldia urbana em uma peça limitada. Disponível exclusivamente sob consulta via atendimento.</p>
                 <img src="mockup-777.jpeg" class="modal-display-img" alt="Drop 777 Mockup">
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN OFFICIAL STORE
-    </footer>
-
