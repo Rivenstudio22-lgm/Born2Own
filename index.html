@@ -8,12 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --bg: #000000;
-            --accent: #ffffff;
-            --gray: #1a1a1a;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -21,44 +15,32 @@
         }
 
         body, html {
-            background: var(--bg);
-            color: var(--accent);
+            background: #000;
+            color: #fff;
             font-family: 'Montserrat', sans-serif;
-            width: 100%;
-            min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        .app-page {
             width: 100%;
-            min-height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
-
-        #page-about { display: none; z-index: 99999; }
 
         header {
             padding: 20px 4%;
             background: rgba(0,0,0,0.95);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--gray);
+            border-bottom: 1px solid #222;
         }
 
-        .hero, .gallery-container {
-            width: 100%;
+        .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 4%;
         }
 
-        .hero-banner img {
+        .hero img {
             width: 100%;
             display: block;
         }
@@ -68,16 +50,13 @@
             letter-spacing: 8px;
             color: #888;
             text-transform: uppercase;
-            margin: 50px 4% 20px;
+            margin: 50px 0 20px;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 12px;
-            padding: 0 4%;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
         .gallery-item {
@@ -95,52 +74,59 @@
         }
 
         .gallery-item:hover img {
-            transform: scale(1.07);
+            transform: scale(1.08);
         }
 
         footer {
             padding: 60px 4%;
             text-align: center;
             font-size: 0.65rem;
-            letter-spacing: 3px;
             color: #666;
+            letter-spacing: 3px;
         }
     </style>
 </head>
 <body>
 
-    <div id="page-store">
-        <header>
-            <span style="font-weight:900; font-size:0.65rem; letter-spacing:4px; color:#888;">NASCIDO PARA POSSUIR</span>
-            <img src="logoazul.jpeg" alt="BORN2OWN" height="45">
-            <button onclick="navigateTo('about')" style="background:none; border:1px solid white; color:white; padding:10px 24px; font-weight:900; cursor:pointer;">SOBRE NÓS</button>
-        </header>
+    <header>
+        <span style="font-weight:900; font-size:0.65rem; letter-spacing:5px; color:#888;">NASCIDO PARA POSSUIR</span>
+        <img src="logoazul.jpeg" alt="BORN2OWN" height="45">
+        <button onclick="navigateTo('about')" style="background:none; border:1px solid #fff; color:#fff; padding:10px 25px; font-weight:900; cursor:pointer;">SOBRE NÓS</button>
+    </header>
 
+    <div class="container">
         <div class="hero">
-            <div class="hero-banner">
-                <img src="thebest.jpeg" alt="Hero">
-            </div>
+            <img src="thebest.jpeg" alt="Hero Image">
         </div>
 
         <span class="section-label">Selected Pieces</span>
+        
         <div class="gallery-grid">
             <div class="gallery-item"><img src="supercap.jpeg" alt=""></div>
             <div class="gallery-item"><img src="manigue.jpeg" alt=""></div>
             <div class="gallery-item"><img src="amalaentao.jpeg" alt=""></div>
             <div class="gallery-item"><img src="mota.jpeg" alt=""></div>
-            <!-- Nova imagem que mandaste -->
+            <div class="gallery-item"><img src="desenho.jpeg" alt=""></div>
+            <div class="gallery-item"><img src="celldeherton.jpeg" alt=""></div>
+            
+            <!-- Nova imagem que enviaste -->
             <div class="gallery-item"><img src="LT3WY" alt="Born2Own Collage"></div>
+            
+            <!-- Aqui podes adicionar as outras duas imagens que faltam -->
+            <!-- <div class="gallery-item"><img src="nome-da-imagem1.jpg" alt=""></div> -->
+            <!-- <div class="gallery-item"><img src="nome-da-imagem2.jpg" alt=""></div> -->
         </div>
-
-        <footer>
-            MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN
-        </footer>
     </div>
+
+    <footer>
+        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN OFFICIAL
+    </footer>
 
     <script>
         function navigateTo(page) {
-            alert("Página 'Sobre Nós' ainda em desenvolvimento");
-            // Podemos adicionar depois
+            if (page === 'about') {
+                alert("Página Sobre Nós em breve...");
+            }
         }
     </script>
 </body>
