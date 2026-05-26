@@ -86,7 +86,7 @@
         }
         .gallery-item { background: var(--bg); height: 600px; overflow: hidden; position: relative; }
         
-        /* USANDO CONTAIN PARA AS IMAGENS FICAREM INTEIRAS SEM CORTES */
+        /* IMAGENS INTEIRAS SEM CORTES */
         .gallery-item img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(20%); transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
         .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
         
@@ -103,7 +103,7 @@
         .gallery-item:hover .item-overlay { opacity: 1; }
         .item-overlay h3 { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; }
 
-        /* TELA CHEIA "SOBRE NÓS" (ESTILO TELA APPS) */
+        /* TELA CHEIA "SOBRE NÓS" */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -140,7 +140,7 @@
         }
         .close-btn:hover { background: var(--accent); color: var(--bg); }
 
-        /* CONTEÚDO DA PÁGINA EM BRANCO (ESCURA) INTERNA */
+        /* CONTEÚDO DO MODAL */
         .modal-content-wrapper {
             width: 100%;
             padding-bottom: 100px;
@@ -221,31 +221,36 @@
         </section>
     </main>
 
-    <!-- TELA INTERNA COMPLETA (MODAL FULL SCREEN) -->
+    <!-- INTERFACE MODAL CONFIGURADA CORRETAMENTE -->
     <div class="modal-overlay" id="aboutModal">
         <button class="close-btn" onclick="toggleModal()">Fechar X</button>
         
         <div class="modal-content-wrapper">
-            <!-- BANNER COMPLETO SEM CORTES LATERAIS -->
             <img src="modelo-preto.jpeg" class="modal-full-banner" alt="Born2Own Black Collection">
 
-            <!-- BLOCO 1: TEXTO + IMAGEM EM ORDEM -->
             <div class="modal-body-section">
                 <h2>THE BLACK DROP</h2>
                 <p>Nossa t-shirt streetwear oversize em algodão premium pesado. Grafismos urbanos fluidos e numeração nas costas que trazem a essência da cultura de rua para o patamar de luxo. Investimento: 2.500 MT.</p>
                 <img src="mockup-preto.jpeg" class="modal-display-img" alt="Camisete Preta Mockup">
             </div>
 
-            <!-- BANNER 2: MODELOS EM BRANCO -->
             <img src="modelo-branco.jpeg" class="modal-full-banner" alt="Born2Own White Collection">
 
-            <!-- BLOCO 2: TEXTO + IMAGEM EM ORDEM -->
             <div class="modal-body-section">
                 <h2>THE WHITE DROP</h2>
                 <p>Equilíbrio perfeito entre o minimalismo do tecido branco e o impacto do contraste em preto. Caimento impecável projetado para manter a estrutura original após o uso. Investimento: 2.500 MT.</p>
                 <img src="mockup-branco.jpeg" class="modal-display-img" alt="Camisete Branca Mockup">
             </div>
 
-            <!-- BLOCO 3: TEXTO + IMAGEM FINAL (DROP 777) -->
             <div class="modal-body-section" style="border-top: 1px solid #111;">
                 <h2>CONCEPT 777</h2>
+                <p>Tipografia gótica agressiva na parte traseira, unindo herança e rebeldia urbana em uma peça limitada. Disponível exclusivamente sob consulta via atendimento.</p>
+                <img src="mockup-777.jpeg" class="modal-display-img" alt="Drop 777 Mockup">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        MAPUTO, MOZAMBIQUE • EST. 2026 • BORN2OWN OFFICIAL STORE
+    </footer>
+
