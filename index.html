@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BORN2OWN | Luxury Streetwear</title>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&amp;family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -25,20 +24,18 @@
             background-color: var(--bg);
             color: var(--accent);
             font-family: 'Montserrat', sans-serif;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* PÁGINAS */
         .app-page {
-            width: 100vw;
+            width: 100%;
             min-height: 100vh;
             position: absolute;
             top: 0;
             left: 0;
             background-color: var(--bg);
-            transition: opacity 0.4s ease;
         }
 
         #page-about {
@@ -58,6 +55,7 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--gray);
+            width: 100%;
         }
         header img { 
             height: 45px; 
@@ -68,12 +66,13 @@
             background: none;
             cursor: pointer;
             color: var(--accent);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 3px;
             font-weight: 900;
             border: 1px solid var(--accent);
             padding: 10px 25px;
-            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: 0.5s;
+            white-space: nowrap;
         }
         .nav-link:hover { 
             background: var(--accent); 
@@ -85,12 +84,12 @@
             padding: 20px 5%; 
             max-width: 1600px; 
             margin: 0 auto; 
+            width: 100%;
         }
         .hero-banner { 
             width: 100%; 
             overflow: hidden; 
             border: 1px solid var(--gray); 
-            position: relative; 
         }
         .hero-banner img { 
             width: 100%; 
@@ -110,27 +109,10 @@
             letter-spacing: 12px; 
             margin-bottom: 40px; 
         }
-       
-        .btn-shop {
-            background: var(--accent);
-            color: var(--bg);
-            padding: 22px 60px;
-            font-weight: 900;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            transition: 0.5s;
-            display: inline-block;
-        }
-        .btn-shop:hover { 
-            letter-spacing: 8px; 
-            background: #e0e0e0; 
-        }
 
-        /* SEÇÕES */
+        /* SEÇÃO PRODUTOS */
         .section-label { 
-            font-size: 0.7rem; 
+            font-size: 0.75rem; 
             letter-spacing: 8px; 
             color: var(--text-muted); 
             text-transform: uppercase; 
@@ -140,14 +122,16 @@
        
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 10px;
-            padding: 10px 5%;
-            background: var(--gray);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 12px;
+            padding: 0 5%;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
         }
         .gallery-item { 
             background: var(--bg); 
-            height: 620px; 
+            height: 580px; 
             overflow: hidden; 
             position: relative; 
             border: 1px solid #111;
@@ -164,7 +148,7 @@
             transform: scale(1.08); 
             filter: grayscale(0%); 
         }
-       
+
         .item-overlay {
             position: absolute;
             inset: 0;
@@ -178,11 +162,6 @@
         .gallery-item:hover .item-overlay { 
             opacity: 1; 
         }
-        .item-overlay h3 { 
-            font-size: 0.85rem; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-        }
 
         /* PÁGINA SOBRE NÓS */
         .back-btn {
@@ -192,7 +171,7 @@
             background: #000000;
             border: 1px solid var(--accent);
             color: var(--accent);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 3px;
             font-weight: 900;
             cursor: pointer;
@@ -215,9 +194,9 @@
             display: block;
         }
         .modal-body-section {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 60px 5%;
             text-align: center;
         }
         .modal-body-section h2 {
@@ -230,7 +209,6 @@
             font-size: 1.05rem;
             color: #b3b3b3;
             line-height: 1.85;
-            font-weight: 300;
             margin-bottom: 40px;
         }
         .modal-display-img {
@@ -249,6 +227,7 @@
             letter-spacing: 4px; 
             color: var(--text-muted); 
             text-align: center; 
+            width: 100%;
         }
 
         /* WHATSAPP */
@@ -265,7 +244,6 @@
             align-items: center; 
             z-index: 1000; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: 0.3s;
         }
         .wpp:hover { 
             transform: scale(1.15); 
@@ -274,7 +252,7 @@
 </head>
 <body>
 
-    <!-- PÁGINA PRINCIPAL -->
+    <!-- PÁGINA LOJA -->
     <div id="page-store" class="app-page">
         <header>
             <span style="font-weight: 900; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-muted);">Nascido para Possuir</span>
@@ -295,30 +273,12 @@
 
             <span class="section-label">Selected Pieces</span>
             <section class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="supercap.jpeg" alt="Hats">
-                    <div class="item-overlay"><h3>Hats Selection</h3></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="manigue.jpeg" alt="Manigue">
-                    <div class="item-overlay"><h3>Manigue Series</h3></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="amalaentao.jpeg" alt="Amala">
-                    <div class="item-overlay"><h3>Amala Collection</h3></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="mota.jpeg" alt="Street">
-                    <div class="item-overlay"><h3>Street Lifestyle</h3></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="desenho.jpeg" alt="Concept">
-                    <div class="item-overlay"><h3>Concept Art</h3></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="celldeherton.jpeg" alt="Limited">
-                    <div class="item-overlay"><h3>Limited Edition</h3></div>
-                </div>
+                <div class="gallery-item"><img src="supercap.jpeg" alt=""><div class="item-overlay"><h3>Hats Selection</h3></div></div>
+                <div class="gallery-item"><img src="manigue.jpeg" alt=""><div class="item-overlay"><h3>Manigue Series</h3></div></div>
+                <div class="gallery-item"><img src="amalaentao.jpeg" alt=""><div class="item-overlay"><h3>Amala Collection</h3></div></div>
+                <div class="gallery-item"><img src="mota.jpeg" alt=""><div class="item-overlay"><h3>Street Lifestyle</h3></div></div>
+                <div class="gallery-item"><img src="desenho.jpeg" alt=""><div class="item-overlay"><h3>Concept Art</h3></div></div>
+                <div class="gallery-item"><img src="celldeherton.jpeg" alt=""><div class="item-overlay"><h3>Limited Edition</h3></div></div>
             </section>
         </main>
 
@@ -336,47 +296,40 @@
         <button class="back-btn" onclick="navigateTo('store')">FECHAR ×</button>
        
         <div class="page-content-wrapper">
-            <img src="modelo-preto.jpeg" class="modal-full-banner" alt="Black Collection">
-            
+            <img src="modelo-preto.jpeg" class="modal-full-banner" alt="">
             <div class="modal-body-section">
                 <h2>THE BLACK DROP</h2>
                 <p>Nossa t-shirt streetwear oversize em algodão premium pesado. Grafismos urbanos fluidos e numeração nas costas que trazem a essência da cultura de rua para o patamar de luxo. Investimento: <strong>2.500 MT</strong>.</p>
-                <img src="mockup-preto.jpeg" class="modal-display-img" alt="Mockup Preto">
+                <img src="mockup-preto.jpeg" class="modal-display-img" alt="">
             </div>
 
-            <img src="modelo-branco.jpeg" class="modal-full-banner" alt="White Collection">
-            
+            <img src="modelo-branco.jpeg" class="modal-full-banner" alt="">
             <div class="modal-body-section">
                 <h2>THE WHITE DROP</h2>
                 <p>Equilíbrio perfeito entre o minimalismo do tecido branco e o impacto do contraste em preto. Caimento impecável projetado para manter a estrutura original após o uso. Investimento: <strong>2.500 MT</strong>.</p>
-                <img src="mockup-branco.jpeg" class="modal-display-img" alt="Mockup Branco">
-            </div>
-
-            <div class="modal-body-section" style="border-top: 1px solid #111;">
-                <h2>CONCEPT 777</h2>
-                <p>A coleção que define a próxima era do streetwear de luxo em Moçambique. Exclusividade, atitude e qualidade premium.</p>
+                <img src="mockup-branco.jpeg" class="modal-display-img" alt="">
             </div>
         </div>
     </div>
 
     <script>
         function navigateTo(page) {
-            const storePage = document.getElementById('page-store');
-            const aboutPage = document.getElementById('page-about');
+            const store = document.getElementById('page-store');
+            const about = document.getElementById('page-about');
 
             if (page === 'about') {
-                storePage.style.opacity = '0';
+                store.style.opacity = '0';
                 setTimeout(() => {
-                    storePage.style.display = 'none';
-                    aboutPage.style.display = 'block';
-                    aboutPage.style.opacity = '1';
+                    store.style.display = 'none';
+                    about.style.display = 'block';
+                    about.style.opacity = '1';
                 }, 300);
-            } else if (page === 'store') {
-                aboutPage.style.opacity = '0';
+            } else {
+                about.style.opacity = '0';
                 setTimeout(() => {
-                    aboutPage.style.display = 'none';
-                    storePage.style.display = 'block';
-                    storePage.style.opacity = '1';
+                    about.style.display = 'none';
+                    store.style.display = 'block';
+                    store.style.opacity = '1';
                 }, 300);
             }
         }
